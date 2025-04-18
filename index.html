@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeeCube</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #1f2937;
+      --accent-color: #f59e0b;
+      --light-bg: #f9fafb;
+      --text-color: #374151;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; /* keep header height fixed */
+}
+
+.site-logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .section {
+      padding: 4rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    #hero {
+      background: url('https://via.placeholder.com/1200x600') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--light-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height:400px;
+      width: 600px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .project-info {
+margin-top: 1rem;
+background: #f3f4f6;
+padding: 1rem;
+border-radius: 8px;
+text-align: left;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-info h3 {
+font-size: 1.2rem;
+margin-bottom: 0.5rem;
+color: var(--primary-color);
+}
+
+.project-info p {
+font-size: 1rem;
+color: #4b5563;
+}
+
+
+    @media (max-width: 768px) {
+      .carousel-button {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo.png" alt="Logo" style="height: 80px;">
+            <strong style=" font-size: 25px;">TeeCube</strong>
+          </div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#services">Services</a>
+        <a href="#footer">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <img src="images/building.jpg" alt="Hero Image" style="width: 100%; max-height: 80vh; object-fit: cover;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                color: white; background: rgba(0,0,0,0.5); padding: 1rem 2rem; border-radius: 12px;">
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" style="padding: 1rem 1rem; background-color: #f9f9f9;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">🏗️ About Us</h2>
+      <p style="font-size: 1rem; line-height: 1.8; color: #333;">
+        With over <strong>22 years of proven experience</strong> in managing and executing large-scale construction projects across India, Saudi Arabia, and Nigeria, our company brings unmatched expertise and dedication to every project we undertake.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: #333;">
+        Founded by a structural engineering professional with a Master's in Technology and a Bachelor's in Civil Engineering, our work reflects a deep understanding of structural integrity, quality, and precision. We have successfully delivered diverse projects, ranging from luxury residential villas and private apartments to public sector infrastructure, police quarters, and international government facilities — handling values from <strong>$9 million to over $800 million</strong>.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: #333;">
+        Our founder has led teams on some of the most technically complex and high-value developments, including:
+      </p>
+      <ul style="text-align: left; max-width: 800px; margin: 1rem auto; color: #333;">
+        <li>Residential & apartment complexes (G+6, G+5, duplex homes)</li>
+        <li>CBSE schools and Smart City initiatives</li>
+        <li>SP offices and government quarters</li>
+        <li>International border facilities and urban infrastructure</li>
+        <li>Luxury villas and commercial complexes</li>
+      </ul>
+      <p style="font-size: 1rem; line-height: 1.8; color: #333;">
+        We believe in building more than just structures — we build trust, timelines, and long-lasting quality. Whether it's a personal home, a high-rise tower, or an institutional facility, we approach every project with the same care, commitment, and excellence.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: #333;">
+        <strong>Our mission</strong> is to deliver construction solutions that are technically sound, aesthetically refined, and executed with unmatched professionalism.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <h2>Past Projects</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Repeat 8 Projects -->
+        <div class="carousel-item">
+            <img src="images/own.png" alt="Hyderabad Private Apartments">
+            <div class="project-info">
+              <h3>Private Apartments – Hyderabad</h3>
+              <p>G+6, G+5, and duplex homes constructed from excavation to finishing in areas like Gachibowli and Madhapur, totaling 32,000+ sq ft.</p>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="carousel-item">
+            <img src="images/amravati.png" alt="Smart City Amaravati">
+            <div class="project-info">
+              <h3>Smart City Schools – Amaravati</h3>
+              <p>Developed CBSE schools and an amusement park in the 18-acre Smart City area. Responsible for quality control and structural execution.</p>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="carousel-item">
+            <img src="images/yadgir.png" alt="Police Quarters Yadgir">
+            <div class="project-info">
+              <h3>Police Quarters & SP Office – Yadgir, Karnataka</h3>
+              <p>Constructed 112 staff quarters and a major SP Office. Managed structural works, safety, billing, and inspections for the Government of Karnataka.</p>
+            </div>
+          </div>
+          
+          <!-- Project 4 -->
+          <div class="carousel-item">
+            <img src="images/kuwait.jpg" alt="Saudi Border Complex">
+            <div class="project-info">
+              <h3>International Border Facility – Saudi Arabia</h3>
+              <p>$800M project including buildings, towers, housing, and infrastructure. Supervised execution across 8 sq km near the Saudi-Kuwait border.</p>
+            </div>
+          </div>
+          
+          <!-- Project 5 -->
+          <div class="carousel-item">
+            <img src="images/srinivas.jpg" alt="Srinivasa Residential Towers">
+            <div class="project-info">
+              <h3>Srinivasa Towers – Hyderabad</h3>
+              <p>Managed 1.2M sq ft of residential towers: 4 towers of 20 floors, 9 towers of 10 floors. Handled daily planning, execution, billing, and QA.</p>
+            </div>
+          </div>
+          
+          <!-- Project 6 -->
+          <div class="carousel-item">
+            <img src="images/nig.jpg" alt="Nigeria Villas">
+            <div class="project-info">
+              <h3>Government Villas & Chalets – Nigeria</h3>
+              <p>Oversaw villa construction for government staff and a luxury resort. Coordinated QA, material approvals, and on-site supervision.</p>
+            </div>
+          </div>
+          
+          
+          <!-- Project 7 -->
+          <div class="carousel-item">
+            <img src="images/sa.jpg" alt="Al Khobar Villas">
+            <div class="project-info">
+              <h3>Luxury Villas – Al Khobar, Saudi Arabia</h3>
+              <p>Constructed beachside villas and clubhouses near Half Moon Beach. Managed daily structural work, QA, and DPRs for the Prince’s team.</p>
+            </div>
+          </div>
+
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-button" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-button" onclick="nextSlide()">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2>Services We Provide</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Residential Construction</h3>
+        <p>Custom homes, renovations, and remodels built to last.</p>
+      </div>
+      <div class="service-card">
+        <h3>Commercial Projects</h3>
+        <p>Office spaces, shops, and industrial solutions with modern design.</p>
+      </div>
+      <div class="service-card">
+        <h3>Project Management</h3>
+        <p>End-to-end project oversight to ensure quality and deadlines.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <h3>Contact Us</h3>
+    <p>📧Email: teecubeconstructions@gmail.com</p>
+    <p>📱Phone: +91 8328393576</p>
+    <p>📍Location: Hyderabad,India</p>
+  </footer>
+
+  <!-- Carousel Script -->
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const items = document.querySelectorAll('.carousel-item');
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      if (index < items.length - 1) {
+        index++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (index > 0) {
+        index--;
+        updateCarousel();
+      }
+    }
+  </script>
+
+</body>
+</html>
